@@ -1,0 +1,4 @@
+mailosaur==7.17.1
+robotframework==7.0.0
+robotframework-seleniumlibrary==6.4.0
+python-dotenv==1.0.1

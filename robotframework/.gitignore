@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.vscode
+*.test
+Thumbs.db 
+
+# cache
+tests/__pycache__

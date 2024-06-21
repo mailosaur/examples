@@ -1,0 +1,16 @@
+{
+  "name": "mailosaur-playwright-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@playwright/test": "^1.16.3",
+    "mailosaur": "^8.6.1",
+    "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "mailosaur-cypress-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^10.10.0",
+    "cypress-mailosaur": "^2.13.0",
+    "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "test": "npx cypress run -q"
+  },
+  "author": "",
+  "license": "ISC"
+}

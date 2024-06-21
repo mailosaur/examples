@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+require 'dotenv/load'
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec)
+
+task :loadenv do
+  Dotenv.load
+end
+
+task spec: :loadenv
+
+task default: :spec
