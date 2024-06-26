@@ -11,7 +11,7 @@ namespace mailosaur_example;
 public class OtpEmailTests()
 {
     [Fact]
-    public void RetrieveOneTimePasscode()
+    public void RetrieveOneTimePasscodeFromEmail()
     {            
         var options = new ChromeOptions();
         options.AddArgument("--headless=new");

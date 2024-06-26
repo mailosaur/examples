@@ -14,7 +14,7 @@ namespace mailosaur_example;
 public class OtpSmsTests()
 {
     [Fact (Skip = "Reason")]
-    public void RetrieveOneTimePasscode()
+    public void RetrieveOneTimePasscodeFromSms()
     {            
         var configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.Testing.json")
