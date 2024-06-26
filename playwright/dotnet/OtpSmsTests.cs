@@ -18,7 +18,7 @@ namespace mailosaur_example;
 public class OtpSmsTests : PageTest
 {
     [Test]
-    public void RetrieveOneTimePasscode()
+    public void RetrieveOneTimePasscodeFromSms()
     {            
         var configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.Testing.json")
