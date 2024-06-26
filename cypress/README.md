@@ -39,7 +39,7 @@ npx cypress run --spec "cypress/e2e/mailosaur/passwordReset.cy.js"
 
 2. Navigates to the [Mailosaur example site](https://example.mailosaur.com/password-reset), which has a mock password reset form.
 
-3. Uses browser automation to submit the a password reset request for the email address.
+3. Uses browser automation to submit a password reset request for the email address.
 
 4. Uses the Mailosaur API to wait for a new email to arrive at the given email address.
 
@@ -62,7 +62,7 @@ npx cypress run --spec "cypress/e2e/mailosaur/otpSms.cy.js"
 
 **NOTE:** Before you run this test, you must send an SMS message to your Mailosaur phone number. To do this, either:
 
-- Update the test case so that it performs whatever automated steps required to trigger an SMS message to be sent (e.g. attempt to log into your product).
+- Update the test case so that it performs whatever automated steps are required to trigger an SMS message to be sent (e.g. attempt to log into your product).
 
 - Or, manually send in an SMS message from your own phone, just to test the process.
 
@@ -70,11 +70,11 @@ When you run the test, it:
 
 1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
 
-2. Grabs the latest one-time password (OTP).
+2. Grabs the one-time password (OTP).
 
 3. Logs the OTP value. Once you have this working, you would change this to an assertion.
 
-## Test email-based Multi-Factor Authentication (MFA) - `otpEmail.cy.js`
+## Multi-Factor Authentication (MFA) via Email - `otpEmail.cy.js`
 
 Shows you how to perform an automated test for a workflow that sends a one-time password (OTP) via email:
 
@@ -92,11 +92,11 @@ npx cypress run --spec "cypress/e2e/mailosaur/otpEmail.cy.js"
 
 5. Asserts that the email received is the expected one.
 
-6. Grabs the latest one-time password (OTP).
+6. Grabs the one-time password (OTP).
 
 7. Logs the OTP value. Once you have this working, you would change this to an assertion.
 
-## Test app-based Multi-Factor Authentication (MFA) - `otpAuthenticator.cy.js`
+## Multi-Factor Authentication (MFA) via App - `otpAuthenticator.cy.js`
 
 > [!NOTE]  
 > **Setup Required -** [enable Mailosaur Authenticator](https://mailosaur.com/app/authenticator) within your Mailosaur account.

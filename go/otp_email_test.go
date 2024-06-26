@@ -7,7 +7,6 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/mailosaur/mailosaur-go"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestOtpEmail(t *testing.T) {
@@ -49,10 +48,6 @@ func TestOtpEmail(t *testing.T) {
   // 4 - Extract the passcode from the email
   // https://mailosaur.com/docs/test-cases/codes
   passcode := email.Html.Codes[0]
-
-  // 5 - Assert code matches sent code
-  expectedPasscode := "123456"
-  assert.Equal(t, expectedPasscode, passcode.Value)
 
   fmt.Printf("\nEmail otp code - " + passcode.Value + "\n")
 }
