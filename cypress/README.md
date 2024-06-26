@@ -14,6 +14,8 @@ Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/
 
 We also have specific documentation for [Cypress](https://mailosaur.com/docs/frameworks-and-tools/cypress) on [email testing](https://mailosaur.com/docs/email-testing/cypress) and [SMS testing](https://mailosaur.com/docs/sms-testing/cypress).
 
+As well as documentation for [Node.js](https://mailosaur.com/docs/languages/nodejs).
+
 ## Running Tests
 
 You can run all the example tests included in this project using `npm`:
