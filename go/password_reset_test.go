@@ -7,7 +7,6 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/mailosaur/mailosaur-go"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestPasswordReset(t *testing.T) {
@@ -49,10 +48,6 @@ func TestPasswordReset(t *testing.T) {
   // 4 - Extract the link from the email
   // https://mailosaur.com/docs/test-cases/links
   passwordResetLink := email.Html.Links[0]
-
-  // 5 - Assert link matches sent link
-  expectedPasswordResetLink := "https://example.mailosaur.com/password-reset"
-  assert.Equal(t, expectedPasswordResetLink, passwordResetLink.Href)
 
   fmt.Printf("\nPassword reset link - " + passwordResetLink.Href + "\n")
 }

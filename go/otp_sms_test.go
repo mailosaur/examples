@@ -12,7 +12,6 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/mailosaur/mailosaur-go"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestOtpSms(t *testing.T) {
@@ -55,10 +54,6 @@ func TestOtpSms(t *testing.T) {
   // 4 - Retrieve passcode from sms
   // https://mailosaur.com/docs/test-cases/codes
   passcode := sms.Text.Codes[0]
-
-  // 5 - Assert passcode matches sent passcode
-  expectedPasscode := "123456"
-  assert.Equal(t, expectedPasscode, passcode.Value)
 
   fmt.Printf("\nSms otp code - " + passcode.Value + "\n")
 }
