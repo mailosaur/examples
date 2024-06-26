@@ -10,7 +10,9 @@ Visit [Mailosaur's website](https://mailosaur.com) to learn more about Mailosaur
 
 ## Documentation
 
-Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/docs) and [Mailosaur's Go documentation](https://mailosaur.com/docs/languages/go).
+Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/docs).
+
+We also have specific documentation for [Go](https://mailosaur.com/docs/languages/go).
 
 ## Running Tests
 
@@ -68,7 +70,7 @@ go test -run TestOtpSms -v
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
 
 2. Grabs the one-time password (OTP).
 
