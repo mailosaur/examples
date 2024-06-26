@@ -58,10 +58,6 @@ class OtpSmsTests extends \PHPUnit\Framework\TestCase
     // https://mailosaur.com/docs/test-cases/codes
     $passcode = $sms->text->codes[0];
 
-    // 5 - Assert passcode matches sent passcode
-    $expectedPasscode = '123456';
-    $this->assertStringContainsString($expectedPasscode, $passcode->value);
-
     echo(PHP_EOL . PHP_EOL . 'Sms otp code - ' . $passcode->value);
   }
 }

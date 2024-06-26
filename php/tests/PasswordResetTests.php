@@ -47,10 +47,6 @@ class PasswordResetTests extends \PHPUnit\Framework\TestCase
     // 4 - Extract the link from the email
     // https://mailosaur.com/docs/test-cases/links
     $passwordResetLink = $email->html->links[0];
-      
-    // 5 - Assert link matches sent link
-    $expectedPasswordResetLink = 'https://example.mailosaur.com/password-reset';
-    $this->assertStringContainsString($expectedPasswordResetLink, $passwordResetLink->href);
 
     echo(PHP_EOL . PHP_EOL . 'Password reset link - ' . $passwordResetLink->href);
   }

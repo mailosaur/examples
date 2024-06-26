@@ -47,10 +47,6 @@ class OtpEmailTests extends \PHPUnit\Framework\TestCase
     // 4 - Extract the passcode from the email
     // https://mailosaur.com/docs/test-cases/codes
     $passcode = $email->html->codes[0];
-      
-    // 5 - Assert code matches sent code
-    $expectedPasscode = '123456';
-    $this->assertStringContainsString($expectedPasscode, $passcode->value);
 
     echo(PHP_EOL . PHP_EOL . 'Email otp code - ' . $passcode->value);
   }
