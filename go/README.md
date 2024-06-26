@@ -10,7 +10,7 @@ Visit [Mailosaur's website](https://mailosaur.com) to learn more about Mailosaur
 
 ## Documentation
 
-Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/docs).
+Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/docs) and [Mailosaur's Go documentation](https://mailosaur.com/docs/languages/go).
 
 ## Running Tests
 
