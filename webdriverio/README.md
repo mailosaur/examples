@@ -10,7 +10,7 @@ Visit [Mailosaur's website](https://mailosaur.com) to learn more about Mailosaur
 
 ## Documentation
 
-Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/docs).
+Documentation can be found on [Mailosaur's site](https://mailosaur.com/docs).
 
 We also have specific documentation for [WebdriverIO](https://mailosaur.com/docs/frameworks-and-tools/webdriverio).
 

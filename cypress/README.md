@@ -10,7 +10,7 @@ Visit [Mailosaur's website](https://mailosaur.com) to learn more about Mailosaur
 
 ## Documentation
 
-Documentation can be found on [Mailosaur's documentation](https://mailosaur.com/docs).
+Documentation can be found on [Mailosaur's site](https://mailosaur.com/docs).
 
 We also have specific documentation for [Cypress](https://mailosaur.com/docs/frameworks-and-tools/cypress) on [email testing](https://mailosaur.com/docs/email-testing/cypress) and [SMS testing](https://mailosaur.com/docs/sms-testing/cypress).
 
