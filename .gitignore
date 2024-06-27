@@ -1,1 +1,6 @@
-examples.sln
+*.sln
+
+.DS_Store
+.env
+.vscode
+Thumbs.db
