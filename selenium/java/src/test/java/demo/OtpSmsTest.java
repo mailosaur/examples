@@ -16,16 +16,13 @@ import java.io.IOException;
 public class OtpSmsTest {
   @Ignore("Reason")
   @Test public void retrieveOneTimePasscode() throws IOException, MailosaurException {
-    Dotenv dotenv = Dotenv.load();
+    Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+    String serverId = dotenv.get("MAILOSAUR_SERVER_ID");
 
-    String apiKey = dotenv.get("mailosaurApiKey");
-    String serverId = dotenv.get("mailosaurServerId"); 
+    // Add your Mailosaur phone number to this variable
+    String phoneNumber = dotenv.get("MAILOSAUR_PHONE_NUMBER");
 
-    // Add your mailosaur servers number to this variable
-    String phoneNumber = dotenv.get("mailosaurPhoneNumber");   
-
-    // Instantiate Mailosaur client with api key
-    MailosaurClient mailosaur = new MailosaurClient(apiKey);
+    MailosaurClient mailosaur = new MailosaurClient(dotenv.get("MAILOSAUR_API_KEY"));
 
     // 1 - Perform an action that sends an otp SMS message to your number
     // https://mailosaur.com/docs/sms-testing

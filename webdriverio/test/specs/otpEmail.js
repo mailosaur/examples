@@ -4,8 +4,8 @@ dotenv.config();
 import MailosaurClient from 'mailosaur';
 import { expect, browser, $ } from '@wdio/globals';
 
-// Instantiate Mailosaur client with api key
-const mailosaur = new MailosaurClient(process.env.MAILOSAUR_API_KEY);
+// Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from the environment)
+const mailosaur = new MailosaurClient();
 
 describe('One time passcode - Email', () => {
   it('retrieves a one time passcode', async () => {

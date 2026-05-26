@@ -5,7 +5,6 @@
 
 using System;
 using Mailosaur;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
 
@@ -18,16 +17,11 @@ public class OtpAuthenticatorTests : PageTest
 {
     [Test]
     public void GenerateOneTimePasscode()
-    {            
-        var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.Testing.json")
-            .Build();
+    {
+        DotNetEnv.Env.TraversePath().Load();
 
-        // Move this to an appropriate secrets manager!
-        var apiKey = configuration["Secrets:MailosaurApiKey"];
-
-        // Instantiate Mailosaur client with api key
-        var mailosaur = new MailosaurClient(apiKey);
+        // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from environment)
+        var mailosaur = new MailosaurClient();
 
         /**
          * This is a base32-encoded shared secret.

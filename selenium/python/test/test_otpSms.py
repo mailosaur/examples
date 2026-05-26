@@ -15,14 +15,13 @@ class OtpSmsTests(unittest.TestCase):
   @unittest.skip("reason")
   def test_retrieve_one_time_passcode(self):
 
-    api_key = os.getenv('MAILOSAUR_API_KEY')
     server_id = os.getenv('MAILOSAUR_SERVER_ID')
-    
+
     # Add your mailosaur servers number to this variable
     phone_number = os.getenv('MAILOSAUR_PHONE_NUMBER')
 
-    # Instantiate Mailosaur client with api key
-    mailosaur = MailosaurClient(api_key)
+    # Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from environment)
+    mailosaur = MailosaurClient()
 
     # 1 - Perform an action that sends an otp SMS message to your number
     # https://mailosaur.com/docs/sms-testing

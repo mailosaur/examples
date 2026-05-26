@@ -14,6 +14,20 @@ Documentation can be found on [Mailosaur's site](https://mailosaur.com/docs).
 
 We also have specific documentation for [Go](https://mailosaur.com/docs/languages/go).
 
+## Setup
+
+Before running the tests, export the following environment variables (or place them in a `.env` file — these examples use [godotenv](https://github.com/joho/godotenv) to load it automatically):
+
+```sh
+export MAILOSAUR_API_KEY=your-api-key       # required by all tests
+export MAILOSAUR_SERVER_ID=your-server-id   # required by password reset, email OTP, and SMS OTP tests
+export MAILOSAUR_PHONE_NUMBER=4471235554444 # required by the SMS OTP test only
+```
+
+You can find your API key and server ID on the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+
+The Mailosaur Go client reads `MAILOSAUR_API_KEY` from the environment when constructed with no arguments (`mailosaur.New()`).
+
 ## Running Tests
 
 You can run all the example tests included in this project using `go`:
@@ -23,7 +37,7 @@ go test -v
 ```
 
 > [!NOTE]  
-> All tests are skipped by default as configuration is required for them to run.
+> All tests are skipped by default as configuration is required for them to run. Remove the `t.Skip(...)` line in each test once you've completed the setup above.
 
 # What's Included
 
@@ -70,7 +84,7 @@ go test -run TestOtpSms -v
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (**NOTE:** You must first set the `MAILOSAUR_PHONE_NUMBER` environment variable to your dedicated Mailosaur phone number — see the [Setup](#setup) section above.)
 
 2. Grabs the one-time password (OTP).
 

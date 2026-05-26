@@ -18,15 +18,14 @@ func TestOtpSms(t *testing.T) {
   t.Skip("reason")
 
   godotenv.Load()
-  
-  apiKey := os.Getenv("MAILOSAUR_API_KEY")
+
   serverId := os.Getenv("MAILOSAUR_SERVER_ID")
 
-  // Add your mailosaur servers number to this variable
+  // Add your Mailosaur server's phone number to this variable
   phoneNumber := os.Getenv("MAILOSAUR_PHONE_NUMBER")
 
-  // Instantiate Mailosaur client with api key
-  m := mailosaur.New(apiKey)
+  // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from the environment)
+  m := mailosaur.New()
 
   // 1 - Perform an action that sends an otp SMS message to your number
   // https://mailosaur.com/docs/sms-testing

@@ -16,6 +16,28 @@ We also have specific documentation for [Selenium](https://mailosaur.com/docs/fr
 
 As well as documentation for [Ruby](https://mailosaur.com/docs/languages/ruby).
 
+## Setup
+
+Before running the tests, install the project dependencies:
+
+```
+bundle install
+```
+
+These tests rely on the following environment variables. You can export them in your shell, or place them in a `.env` file at the root of this sub-project (the `Rakefile` loads `.env` automatically via [dotenv](https://rubygems.org/gems/dotenv)):
+
+- `MAILOSAUR_API_KEY` — your Mailosaur API key. Find it in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api). The Mailosaur client reads this automatically.
+- `MAILOSAUR_SERVER_ID` — the ID of the server you want to send test emails to (used by `password_reset_spec.rb`, `otp_email_spec.rb`, and `otp_sms_spec.rb`).
+- `MAILOSAUR_PHONE_NUMBER` — a Mailosaur phone number, in international format (used by `otp_sms_spec.rb` only). [Enable SMS testing](https://mailosaur.com/app/sms) on your account first.
+
+Example `.env`:
+
+```
+MAILOSAUR_API_KEY=your-api-key-here
+MAILOSAUR_SERVER_ID=abc123
+MAILOSAUR_PHONE_NUMBER=441234567890
+```
+
 ## Running Tests
 
 You can run all the example tests included in this project using `rake`:
@@ -72,7 +94,7 @@ rake spec SPEC=spec/otp_sms_spec.rb
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** You must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
 
 2. Grabs the one-time password (OTP).
 

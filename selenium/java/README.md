@@ -16,6 +16,31 @@ We also have specific documentation for [Selenium](https://mailosaur.com/docs/fr
 
 As well as documentation for [Java](https://mailosaur.com/docs/languages/java).
 
+## Setup
+
+Before running the tests, export the following environment variables:
+
+```sh
+export MAILOSAUR_API_KEY='your-api-key-here'
+export MAILOSAUR_SERVER_ID='your-server-id'
+```
+
+If you plan to run the SMS test (`OtpSmsTest`), also export:
+
+```sh
+export MAILOSAUR_PHONE_NUMBER='your-mailosaur-phone-number'
+```
+
+Alternatively, create a `.env` file in the project root with the same keys — the tests load it via [dotenv-java](https://github.com/cdimascio/dotenv-java):
+
+```
+MAILOSAUR_API_KEY=your-api-key-here
+MAILOSAUR_SERVER_ID=your-server-id
+MAILOSAUR_PHONE_NUMBER=
+```
+
+You can find your API key and Server ID in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+
 ## Running Tests
 
 You can run all the example tests included in this project using `mvn`:
@@ -72,7 +97,7 @@ mvn test -Dtest=OtpSmsTest
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `mailosaurPhoneNumber` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** You must first export the `MAILOSAUR_PHONE_NUMBER` environment variable, set to your dedicated Mailosaur phone number.)
 
 2. Grabs the one-time password (OTP).
 

@@ -16,6 +16,29 @@ We also have specific documentation for [Cypress](https://mailosaur.com/docs/fra
 
 As well as documentation for [Node.js](https://mailosaur.com/docs/languages/nodejs).
 
+## Setup
+
+Install dependencies:
+
+```
+npm install
+```
+
+The tests read configuration from environment variables. You can export these directly, or place them in a `.env` file at the project root (this is loaded automatically by `cypress.config.js` via `dotenv`).
+
+| Variable | Required | Used by | Description |
+| --- | --- | --- | --- |
+| `MAILOSAUR_API_KEY` | Yes | All tests | Your Mailosaur API key. Find it on the [API tab](https://mailosaur.com/app/project/api) of the Mailosaur Dashboard. |
+| `MAILOSAUR_SERVER_ID` | Yes | `passwordReset.cy.js`, `otpEmail.cy.js`, `otpSms.cy.js` | The ID of the Mailosaur server to test against. |
+| `MAILOSAUR_PHONE_NUMBER` | Only for `otpSms.cy.js` | `otpSms.cy.js` | A Mailosaur phone number reserved on your account. Requires [SMS testing](https://mailosaur.com/app/sms) to be enabled. |
+
+Example:
+
+```sh
+export MAILOSAUR_API_KEY='your-api-key-here'
+export MAILOSAUR_SERVER_ID='your-server-id'
+```
+
 ## Running Tests
 
 You can run all the example tests included in this project using `npm`:
@@ -72,7 +95,7 @@ npx cypress run --spec "cypress/e2e/mailosaur/otpSms.cy.js"
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (**NOTE:** You must first set the `MAILOSAUR_PHONE_NUMBER` environment variable to your dedicated Mailosaur phone number — see [Setup](#setup) above.)
 
 2. Grabs the one-time password (OTP).
 

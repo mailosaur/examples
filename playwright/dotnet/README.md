@@ -16,6 +16,24 @@ We also have specific documentation for [Playwright](https://mailosaur.com/docs/
 
 As well as documentation for [.NET](https://mailosaur.com/docs/languages/dotnet).
 
+## Setup
+
+The tests load configuration from a `.env` file in this directory (or from your shell environment) using [DotNetEnv](https://github.com/tonerdo/dotnet-env). Create a `.env` file with the following keys:
+
+```
+MAILOSAUR_API_KEY=your-api-key-here
+MAILOSAUR_SERVER_ID=your-server-id
+MAILOSAUR_PHONE_NUMBER=
+```
+
+- `MAILOSAUR_API_KEY` — read automatically by `MailosaurClient`.
+- `MAILOSAUR_SERVER_ID` — used by the password reset and email OTP tests.
+- `MAILOSAUR_PHONE_NUMBER` — your dedicated Mailosaur phone number, used only by the SMS OTP test.
+
+Alternatively, export the same variables in your shell instead of using a `.env` file.
+
+You can find your API key, Server ID, and any reserved phone numbers in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+
 ## Running Tests
 
 You can run all the example tests included in this project using `dotnet`:
@@ -24,7 +42,7 @@ You can run all the example tests included in this project using `dotnet`:
 dotnet test
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > Where a test depends on a feature that may not yet be enabled on your account, the test is skipped by default.
 
 # What's Included
@@ -72,7 +90,7 @@ dotnet test --filter RetrieveOneTimePasscodeFromSms
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MailosaurPhoneNumber` variable inside the `appsettings.Testing.json` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (**NOTE:** You must first set `MAILOSAUR_PHONE_NUMBER` to your dedicated Mailosaur phone number — see the [Setup](#setup) section above.)
 
 2. Grabs the one-time password (OTP).
 

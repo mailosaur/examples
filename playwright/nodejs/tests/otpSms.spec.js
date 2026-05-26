@@ -8,8 +8,8 @@ require('dotenv').config();
 const MailosaurClient = require('mailosaur');
 const { skip, test } = require('@playwright/test');
 
-// Instantiate Mailosaur client with api key
-const mailosaur = new MailosaurClient(process.env.MAILOSAUR_API_KEY);
+// Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from env)
+const mailosaur = new MailosaurClient();
 const serverId = process.env.MAILOSAUR_SERVER_ID;
 
 // Add your mailosaur servers number to this variable

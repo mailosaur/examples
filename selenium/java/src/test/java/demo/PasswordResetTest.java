@@ -2,13 +2,13 @@ package demo;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import io.github.cdimascio.dotenv.Dotenv;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import io.github.cdimascio.dotenv.Dotenv;
 import com.mailosaur.MailosaurClient;
 import com.mailosaur.MailosaurException;
 import com.mailosaur.models.*;
@@ -21,13 +21,10 @@ public class PasswordResetTest {
     options.addArguments("--headless=new");
     WebDriver browser = new ChromeDriver(options);
 
-    Dotenv dotenv = Dotenv.load();
+    Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+    String serverId = dotenv.get("MAILOSAUR_SERVER_ID");
 
-    String apiKey = dotenv.get("mailosaurApiKey");
-    String serverId = dotenv.get("mailosaurServerId");    
-
-    // Instantiate Mailosaur client with api key
-    MailosaurClient mailosaur = new MailosaurClient(apiKey);
+    MailosaurClient mailosaur = new MailosaurClient(dotenv.get("MAILOSAUR_API_KEY"));
 
     // Random test email address (this uses a catch-all pattern)
     String randomString = UUID.randomUUID().toString().replaceAll("-", "").substring(7, 13);

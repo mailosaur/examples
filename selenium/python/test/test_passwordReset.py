@@ -19,11 +19,10 @@ class PasswordResetTests(unittest.TestCase):
     options.add_argument("--headless=new")
     browser = webdriver.Chrome(options=options)
 
-    api_key = os.getenv('MAILOSAUR_API_KEY')
     server_id = os.getenv('MAILOSAUR_SERVER_ID')
 
-    # Instantiate Mailosaur client with api key
-    mailosaur = MailosaurClient(api_key)
+    # Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from environment)
+    mailosaur = MailosaurClient()
 
     # Random test email address (this uses a catch-all pattern)
     random_string = base64.b32encode(secrets.token_bytes(8)).decode('utf-8')[6:]
