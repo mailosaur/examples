@@ -16,11 +16,10 @@ class PasswordResetTests extends \PHPUnit\Framework\TestCase
   
   public static function setUpBeforeClass(): void
   {
-    $apiKey = $_ENV['MAILOSAUR_API_KEY'];
     self::$server = $_ENV['MAILOSAUR_SERVER_ID'];
 
-    // Instantiate Mailosaur client with api key
-    self::$client = new MailosaurClient($apiKey);
+    // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from the environment)
+    self::$client = new MailosaurClient();
   }
 
   /** @test */

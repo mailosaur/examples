@@ -12,9 +12,31 @@ Visit [Mailosaur's website](https://mailosaur.com) to learn more about Mailosaur
 
 Documentation can be found on [Mailosaur's site](https://mailosaur.com/docs).
 
-We also have specific documentation for [Playwright](https://mailosaur.com/docs/frameworks-and-tools/playwright) on [email testing](https://mailosaur.com/docs/email-testing/playwright) and [SMS testing](https://mailosaur.com/docs/sms-testing/playwright).
+We also have specific documentation for [Playwright](https://mailosaur.com/docs/frameworks-and-tools/playwright) on [email testing](https://mailosaur.com/docs/email-testing/playwright) and [SMS testing](https://mailosaur.com/docs/sms-testing/playwright), as well as documentation for [Node.js](https://mailosaur.com/docs/languages/nodejs).
 
-As well as documentation for [Node.js](https://mailosaur.com/docs/languages/nodejs).
+## Setup
+
+Install the project dependencies:
+
+```
+npm install
+```
+
+The tests read configuration from environment variables. You can either `export` them in your shell or create a `.env` file in this directory (loaded automatically via `dotenv`).
+
+| Variable | Used by | Description |
+| --- | --- | --- |
+| `MAILOSAUR_API_KEY` | All tests | Your Mailosaur API key. The Mailosaur client reads this automatically when instantiated with no arguments. [Find your key](https://mailosaur.com/app/keys). |
+| `MAILOSAUR_SERVER_ID` | `passwordReset.spec.js`, `otpEmail.spec.js`, `otpSms.spec.js` | The ID of the Mailosaur server to use. [Find your server ID](https://mailosaur.com/app/servers). |
+| `MAILOSAUR_PHONE_NUMBER` | `otpSms.spec.js` | A phone number reserved on your Mailosaur account. Required only for the SMS test. |
+
+Example:
+
+```
+export MAILOSAUR_API_KEY='your-api-key-here'
+export MAILOSAUR_SERVER_ID='your-server-id'
+export MAILOSAUR_PHONE_NUMBER='your-mailosaur-phone-number'
+```
 
 ## Running Tests
 
@@ -72,7 +94,7 @@ npx playwright test otpSms.spec.js
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** You must first set the `MAILOSAUR_PHONE_NUMBER` environment variable to your dedicated Mailosaur phone number — see [Setup](#setup) above.)
 
 2. Grabs the one-time password (OTP).
 

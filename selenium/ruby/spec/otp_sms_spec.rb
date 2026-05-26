@@ -7,14 +7,13 @@ require 'mailosaur'
 
 RSpec.describe 'Otp sms' do
   before do
-    api_key = ENV['MAILOSAUR_API_KEY']
     @server_id = ENV['MAILOSAUR_SERVER_ID']
 
     # Add your mailosaur servers number to this variable
     @phone_number = ENV['MAILOSAUR_PHONE_NUMBER']
 
-    # Instantiate Mailosaur client with api key
-    @mailosaur = Mailosaur::MailosaurClient.new(api_key)
+    # Reads the API key from the MAILOSAUR_API_KEY environment variable
+    @mailosaur = Mailosaur::MailosaurClient.new
   end
 
   it 'Retrieves a one time passcode', skip: true do

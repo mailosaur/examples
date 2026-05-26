@@ -2,7 +2,6 @@ using System;
 using Xunit;
 using Mailosaur;
 using Mailosaur.Models;
-using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -17,16 +16,12 @@ public class PasswordResetTests()
         options.AddArgument("--headless=new");
         IWebDriver browser = new ChromeDriver(options);
 
-        var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.Testing.json")
-            .Build();
+        DotNetEnv.Env.TraversePath().Load();
 
-        // Move this to an appropriate secrets manager!
-        var apiKey = configuration["Secrets:MailosaurApiKey"];
-        var serverId = configuration["Secrets:MailosaurServerId"];
+        var serverId = Environment.GetEnvironmentVariable("MAILOSAUR_SERVER_ID");
 
-        // Instantiate Mailosaur client with api key
-        var mailosaur = new MailosaurClient(apiKey);
+        // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from environment)
+        var mailosaur = new MailosaurClient();
 
         // Random test email address (this uses a catch-all pattern)
         var randomString = Guid.NewGuid().ToString();

@@ -2,5 +2,5 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable('.');
-$dotenv->load();
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable('.');
+$dotenv->safeLoad();

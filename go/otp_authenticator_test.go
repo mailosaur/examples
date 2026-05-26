@@ -7,7 +7,6 @@ package mailosaurExample
 
 import (
 	"fmt"
-	"os"
 	"testing"
 
 	"github.com/joho/godotenv"
@@ -18,11 +17,9 @@ func TestOtpAuthenticator(t *testing.T) {
   t.Skip("reason")
 
   godotenv.Load()
-  
-  apiKey := os.Getenv("MAILOSAUR_API_KEY")
 
-  // Instantiate Mailosaur client with api key
-  m := mailosaur.New(apiKey)
+  // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from the environment)
+  m := mailosaur.New()
 
 	/**
    * This is a base32-encoded shared secret.

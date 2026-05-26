@@ -25,14 +25,13 @@ class OtpSmsTests extends \PHPUnit\Framework\TestCase
   
   public static function setUpBeforeClass(): void
   {
-    $apiKey = $_ENV['MAILOSAUR_API_KEY'];
     self::$server = $_ENV['MAILOSAUR_SERVER_ID'];
 
-    // Add your mailosaur servers number to this variable
+    // Add your Mailosaur server's phone number to this variable
     self::$phoneNumber = $_ENV['MAILOSAUR_PHONE_NUMBER'];
-    
-    // Instantiate Mailosaur client with api key
-    self::$client = new MailosaurClient($apiKey);
+
+    // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from the environment)
+    self::$client = new MailosaurClient();
   }
   
   /** @test */

@@ -13,12 +13,11 @@ func TestOtpEmail(t *testing.T) {
   t.Skip("reason")
 
   godotenv.Load()
-  
-  apiKey := os.Getenv("MAILOSAUR_API_KEY")
+
   serverId := os.Getenv("MAILOSAUR_SERVER_ID")
 
-  // Instantiate Mailosaur client with api key
-  m := mailosaur.New(apiKey)
+  // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from the environment)
+  m := mailosaur.New()
 
   // Test email address (this uses a catch-all pattern)
   emailAddress := fmt.Sprintf("test-email@%s.mailosaur.net", serverId)

@@ -16,12 +16,9 @@ import java.io.IOException;
 public class OtpAuthenticatorTest {
   @Ignore("Reason")
   @Test public void retrieveOneTimePasscode() throws IOException, MailosaurException {
-    Dotenv dotenv = Dotenv.load();
+    Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
-    String apiKey = dotenv.get("mailosaurApiKey");
-
-    // Instantiate Mailosaur client with api key
-    MailosaurClient mailosaur = new MailosaurClient(apiKey);
+    MailosaurClient mailosaur = new MailosaurClient(dotenv.get("MAILOSAUR_API_KEY"));
 
     /**
      * This is a base32-encoded shared secret.

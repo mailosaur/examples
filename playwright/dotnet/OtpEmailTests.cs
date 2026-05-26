@@ -1,7 +1,6 @@
 using System;
 using Mailosaur;
 using Mailosaur.Models;
-using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
@@ -15,16 +14,12 @@ public class OtpEmailTests : PageTest
     [Test]
     public async Task RetrieveOneTimePasscodeFromEmail()
     {            
-        var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.Testing.json")
-            .Build();
+        DotNetEnv.Env.TraversePath().Load();
 
-        // Move this to an appropriate secrets manager!
-        var apiKey = configuration["Secrets:MailosaurApiKey"];
-        var serverId = configuration["Secrets:MailosaurServerId"];
+        var serverId = Environment.GetEnvironmentVariable("MAILOSAUR_SERVER_ID");
 
-        // Instantiate Mailosaur client with api key
-        var mailosaur = new MailosaurClient(apiKey);
+        // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from environment)
+        var mailosaur = new MailosaurClient();
 
         // Random test email address (this uses a catch-all pattern)
         var randomString = Guid.NewGuid().ToString();

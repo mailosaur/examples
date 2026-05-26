@@ -16,6 +16,22 @@ We also have specific documentation for [Robot Framework](https://mailosaur.com/
 
 As well as documentation for [Python](https://mailosaur.com/docs/languages/python).
 
+## Setup
+
+1. Install the project dependencies:
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. Set the following environment variables. You can either `export` them directly, or place them in a `.env` file in this directory (the test library uses [`python-dotenv`](https://pypi.org/project/python-dotenv/) to load them automatically):
+
+   - `MAILOSAUR_API_KEY` — your Mailosaur API key. Find it on the [API tab](https://mailosaur.com/app/project/api) of your Mailosaur Dashboard.
+   - `MAILOSAUR_SERVER_ID` — the ID of the server (project) to test against.
+   - `MAILOSAUR_PHONE_NUMBER` — only required if you plan to run the SMS test (`otp_sms.robot`). Set to a phone number reserved within your Mailosaur account.
+
+   The Python library file `tests/script_keywords.py` reads these variables, and the Robot Framework resource file `tests/resource.robot` imports it as a library along with `SeleniumLibrary`.
+
 ## Running Tests
 
 You can run all the example tests included in this project using `robot`:
@@ -24,7 +40,7 @@ You can run all the example tests included in this project using `robot`:
 robot tests
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > Where a test depends on a feature that may not yet be enabled on your account, the test is skipped by default.
 
 # What's Included
@@ -72,7 +88,7 @@ robot -t "Otp Sms"  tests/otp_sms.robot
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** You must first set the `MAILOSAUR_PHONE_NUMBER` environment variable (or add it to your `.env` file) to your dedicated Mailosaur phone number.)
 
 2. Grabs the one-time password (OTP).
 

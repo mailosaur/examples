@@ -13,13 +13,13 @@ load_dotenv()
 class script_keywords:
 
     def __init__(self):
-        api_key = os.getenv('MAILOSAUR_API_KEY')
         server_id = os.getenv('MAILOSAUR_SERVER_ID')
         phone_number = os.getenv('MAILOSAUR_PHONE_NUMBER')
 
-        # Instantiate Mailosaur client with api key
-        self.mailosaur = MailosaurClient(api_key)
-        
+        # Instantiate Mailosaur client; the API key is read automatically
+        # from the MAILOSAUR_API_KEY environment variable.
+        self.mailosaur = MailosaurClient()
+
         self.server_id = server_id
         self.phone_number = phone_number
 

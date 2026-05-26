@@ -6,7 +6,6 @@
 using System;
 using Mailosaur;
 using Mailosaur.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
 
@@ -20,19 +19,15 @@ public class OtpSmsTests : PageTest
     [Test]
     public void RetrieveOneTimePasscodeFromSms()
     {            
-        var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.Testing.json")
-            .Build();
+        DotNetEnv.Env.TraversePath().Load();
 
-        // Move this to an appropriate secrets manager!
-        var apiKey = configuration["Secrets:MailosaurApiKey"];
-        var serverId = configuration["Secrets:MailosaurServerId"];
+        var serverId = Environment.GetEnvironmentVariable("MAILOSAUR_SERVER_ID");
 
         // Add your mailosaur servers number to this variable
-        var phoneNumber = configuration["Secrets:MailosaurPhoneNumber"];
+        var phoneNumber = Environment.GetEnvironmentVariable("MAILOSAUR_PHONE_NUMBER");
 
-        // Instantiate Mailosaur client with api key
-        var mailosaur = new MailosaurClient(apiKey);
+        // Instantiate Mailosaur client (reads MAILOSAUR_API_KEY from environment)
+        var mailosaur = new MailosaurClient();
 
         // 1 - Perform an action that sends an otp SMS message to your number
         // https://mailosaur.com/docs/sms-testing

@@ -16,6 +16,37 @@ We also have specific documentation for [Selenium](https://mailosaur.com/docs/fr
 
 As well as documentation for [Python](https://mailosaur.com/docs/languages/python).
 
+## Setup
+
+Install the project dependencies:
+
+```sh
+pip install -r requirements.txt
+```
+
+The Mailosaur client reads your API key from the `MAILOSAUR_API_KEY` environment variable, so you must export it before running the tests:
+
+```sh
+export MAILOSAUR_API_KEY='your-api-key-here'
+export MAILOSAUR_SERVER_ID='your-server-id'
+```
+
+The SMS test (`test_otpSms.py`) additionally requires a Mailosaur phone number:
+
+```sh
+export MAILOSAUR_PHONE_NUMBER='your-mailosaur-phone-number'
+```
+
+These tests use [python-dotenv](https://pypi.org/project/python-dotenv/), so you can alternatively place the variables in a `.env` file in the project root:
+
+```
+MAILOSAUR_API_KEY=your-api-key-here
+MAILOSAUR_SERVER_ID=your-server-id
+MAILOSAUR_PHONE_NUMBER=your-mailosaur-phone-number
+```
+
+You can find your API key and server ID in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+
 ## Running Tests
 
 You can run all the example tests included in this project using `python`:
@@ -72,7 +103,7 @@ python -m unittest test/test_otpSms.py
 
 When you run the test, it:
 
-1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** Your must first set the `MAILOSAUR_PHONE_NUMBER` variable inside the `.env` file to your dedicated Mailosaur phone number.)
+1. Uses the Mailosaur API to wait for an SMS message to arrive at the given phone number. (🚨 **NOTE:** You must first set the `MAILOSAUR_PHONE_NUMBER` environment variable to your dedicated Mailosaur phone number — see the [Setup](#setup) section.)
 
 2. Grabs the one-time password (OTP).
 

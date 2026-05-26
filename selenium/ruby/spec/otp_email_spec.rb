@@ -5,14 +5,13 @@ require 'selenium-webdriver'
 
 RSpec.describe 'Otp email' do
   before do
-    api_key = ENV['MAILOSAUR_API_KEY']
     @server_id = ENV['MAILOSAUR_SERVER_ID']
 
     options = Selenium::WebDriver::Options.chrome(args: ['--headless=new'])
     @browser = Selenium::WebDriver.for :chrome, options: options
 
-    # Instantiate Mailosaur client with api key
-    @mailosaur = Mailosaur::MailosaurClient.new(api_key)
+    # Reads the API key from the MAILOSAUR_API_KEY environment variable
+    @mailosaur = Mailosaur::MailosaurClient.new
   end
 
   it 'Retrieves a one time passcode' do

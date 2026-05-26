@@ -7,10 +7,8 @@ require 'mailosaur'
 
 RSpec.describe 'Otp authenticator' do
   before do
-    api_key = ENV['MAILOSAUR_API_KEY']
-
-    # Instantiate Mailosaur client with api key
-    @mailosaur = Mailosaur::MailosaurClient.new(api_key)
+    # Reads the API key from the MAILOSAUR_API_KEY environment variable
+    @mailosaur = Mailosaur::MailosaurClient.new
   end
 
   it 'Generate a one time passcode', skip: true do
