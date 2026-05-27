@@ -24,7 +24,7 @@ npm install
 
 Set the following environment variables before running the tests. You can either `export` them in your shell, or place them in a `.env` file in this directory (the test specs load `.env` automatically via `dotenv`):
 
-- `MAILOSAUR_API_KEY` (required) — Your Mailosaur API key. [Find this in the Dashboard](https://mailosaur.com/app/project/api).
+- `MAILOSAUR_API_KEY` (required) — Your Mailosaur API key. [Find your API key in the Mailosaur Dashboard](https://mailosaur.com/app/keys).
 - `MAILOSAUR_SERVER_ID` (required) — The ID of the Mailosaur inbox (server) to use for the email-based tests.
 - `MAILOSAUR_PHONE_NUMBER` (optional) — Only required by `otpSms.js`. Set this to a phone number reserved on your Mailosaur account.
 
