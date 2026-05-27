@@ -45,7 +45,7 @@ MAILOSAUR_SERVER_ID=your-server-id
 MAILOSAUR_PHONE_NUMBER=your-mailosaur-phone-number
 ```
 
-You can find your API key and inbox (server) ID in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+You can [find your API key in the Mailosaur Dashboard](https://mailosaur.com/app/keys). Your [inbox (server) ID](https://mailosaur.com/app/servers) is the first part of the inbox's domain (e.g. `abc123` in `abc123.mailosaur.net`).
 
 ## Running Tests
 

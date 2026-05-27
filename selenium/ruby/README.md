@@ -26,7 +26,7 @@ bundle install
 
 These tests rely on the following environment variables. You can export them in your shell, or place them in a `.env` file at the root of this sub-project (the `Rakefile` loads `.env` automatically via [dotenv](https://rubygems.org/gems/dotenv)):
 
-- `MAILOSAUR_API_KEY` — your Mailosaur API key. Find it in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api). The Mailosaur client reads this automatically.
+- `MAILOSAUR_API_KEY` — your Mailosaur API key. [Find your API key in the Mailosaur Dashboard](https://mailosaur.com/app/keys). The Mailosaur client reads this automatically.
 - `MAILOSAUR_SERVER_ID` — the ID of the inbox (server) you want to send test emails to (used by `password_reset_spec.rb`, `otp_email_spec.rb`, and `otp_sms_spec.rb`).
 - `MAILOSAUR_PHONE_NUMBER` — a Mailosaur phone number, in international format (used by `otp_sms_spec.rb` only). [Enable SMS testing](https://mailosaur.com/app/sms) on your account first.
 

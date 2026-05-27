@@ -26,7 +26,7 @@ As well as documentation for [Python](https://mailosaur.com/docs/languages/pytho
 
 2. Set the following environment variables. You can either `export` them directly, or place them in a `.env` file in this directory (the test library uses [`python-dotenv`](https://pypi.org/project/python-dotenv/) to load them automatically):
 
-   - `MAILOSAUR_API_KEY` — your Mailosaur API key. Find it on the [API tab](https://mailosaur.com/app/project/api) of your Mailosaur Dashboard.
+   - `MAILOSAUR_API_KEY` — your Mailosaur API key. [Find your API key in the Mailosaur Dashboard](https://mailosaur.com/app/keys).
    - `MAILOSAUR_SERVER_ID` — the ID of the inbox (server), which acts like a project, to test against.
    - `MAILOSAUR_PHONE_NUMBER` — only required if you plan to run the SMS test (`otp_sms.robot`). Set to a phone number reserved within your Mailosaur account.
 

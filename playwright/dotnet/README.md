@@ -32,7 +32,7 @@ MAILOSAUR_PHONE_NUMBER=
 
 Alternatively, export the same variables in your shell instead of using a `.env` file.
 
-You can find your API key, Server ID, and any reserved phone numbers in the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+You can [find your API key in the Mailosaur Dashboard](https://mailosaur.com/app/keys). Your [inbox (server) ID](https://mailosaur.com/app/servers) is the first part of the inbox's domain (e.g. `abc123` in `abc123.mailosaur.net`), and any reserved phone numbers are listed there too.
 
 ## Running Tests
 
