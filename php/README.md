@@ -25,7 +25,7 @@ export MAILOSAUR_SERVER_ID='your-server-id'
 export MAILOSAUR_PHONE_NUMBER='your-mailosaur-phone-number'
 ```
 
-You can find your API key and server ID on the [Mailosaur Dashboard](https://mailosaur.com/app/project/api). The phone number is only needed for the SMS example — see [Setup a phone number](https://mailosaur.com/app/sms).
+You can find your API key and inbox (server) ID on the [Mailosaur Dashboard](https://mailosaur.com/app/project/api). The phone number is only needed for the SMS example — see [Setup a phone number](https://mailosaur.com/app/sms).
 
 Alternatively, you can place the same variables in a `.env` file at the project root. The bootstrap file uses [`vlucas/phpdotenv`](https://github.com/vlucas/phpdotenv) to load them if present:
 
