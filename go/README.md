@@ -24,7 +24,7 @@ export MAILOSAUR_SERVER_ID=your-server-id   # required by password reset, email 
 export MAILOSAUR_PHONE_NUMBER=4471235554444 # required by the SMS OTP test only
 ```
 
-You can find your API key and server ID on the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
+You can find your API key and inbox (server) ID on the [Mailosaur Dashboard](https://mailosaur.com/app/project/api).
 
 The Mailosaur Go client reads `MAILOSAUR_API_KEY` from the environment when constructed with no arguments (`mailosaur.New()`).
 

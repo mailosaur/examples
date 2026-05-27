@@ -29,7 +29,7 @@ The tests read configuration from environment variables. You can export these di
 | Variable | Required | Used by | Description |
 | --- | --- | --- | --- |
 | `MAILOSAUR_API_KEY` | Yes | All tests | Your Mailosaur API key. Find it on the [API tab](https://mailosaur.com/app/project/api) of the Mailosaur Dashboard. |
-| `MAILOSAUR_SERVER_ID` | Yes | `passwordReset.cy.js`, `otpEmail.cy.js`, `otpSms.cy.js` | The ID of the Mailosaur server to test against. |
+| `MAILOSAUR_SERVER_ID` | Yes | `passwordReset.cy.js`, `otpEmail.cy.js`, `otpSms.cy.js` | The ID of the Mailosaur inbox (server) to test against. |
 | `MAILOSAUR_PHONE_NUMBER` | Only for `otpSms.cy.js` | `otpSms.cy.js` | A Mailosaur phone number reserved on your account. Requires [SMS testing](https://mailosaur.com/app/sms) to be enabled. |
 
 Example:

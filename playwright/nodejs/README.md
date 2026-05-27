@@ -27,7 +27,7 @@ The tests read configuration from environment variables. You can either `export`
 | Variable | Used by | Description |
 | --- | --- | --- |
 | `MAILOSAUR_API_KEY` | All tests | Your Mailosaur API key. The Mailosaur client reads this automatically when instantiated with no arguments. [Find your key](https://mailosaur.com/app/keys). |
-| `MAILOSAUR_SERVER_ID` | `passwordReset.spec.js`, `otpEmail.spec.js`, `otpSms.spec.js` | The ID of the Mailosaur server to use. [Find your server ID](https://mailosaur.com/app/servers). |
+| `MAILOSAUR_SERVER_ID` | `passwordReset.spec.js`, `otpEmail.spec.js`, `otpSms.spec.js` | The ID of the Mailosaur inbox (server) to use. [Find your inbox (server) ID](https://mailosaur.com/app/servers). |
 | `MAILOSAUR_PHONE_NUMBER` | `otpSms.spec.js` | A phone number reserved on your Mailosaur account. Required only for the SMS test. |
 
 Example:
