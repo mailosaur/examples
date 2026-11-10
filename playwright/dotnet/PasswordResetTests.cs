@@ -13,7 +13,7 @@ public class PasswordResetTests : PageTest
 {
     [Test]
     public async Task PerformPasswordReset()
-    {            
+    {
         DotNetEnv.Env.TraversePath().Load();
 
         var serverId = Environment.GetEnvironmentVariable("MAILOSAUR_SERVER_ID");
