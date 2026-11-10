@@ -11,7 +11,7 @@ public class PasswordResetTests()
 {
     [Fact]
     public void PerformPasswordReset()
-    {            
+    {
         var options = new ChromeOptions();
         options.AddArgument("--headless=new");
         IWebDriver browser = new ChromeDriver(options);
